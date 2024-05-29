@@ -1,0 +1,1 @@
+find -name '*z' | find -name '*z' | find -name 'z*a!'
