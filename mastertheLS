@@ -1,0 +1,1 @@
+ls --time=atime --sort=time --indicator-style=slash --ignore=".*" --ignore=".." --ignore="." | paste -sd "," -
