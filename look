@@ -1,1 +1,1 @@
-find \( -name "a*" -o -name "*z" -o -name "z*a" -not -name "./za!" \)
+find \( -name "a*" -o -name "*z" -o -name "z*a" ! -name "./za!" \)
