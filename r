@@ -1,1 +1,1 @@
-R\n
+echo -n "R\n"
