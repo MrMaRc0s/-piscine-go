@@ -5,12 +5,18 @@ import (
 )
 
 func PrintComb() {
-	for i := 100; i < 1000; i++ {
-		if i[0] < i[1]{
-			if i[1] < i[2]{
-				if i[0] != i[1] && i[1] != i[2]{
-					z01.PrintRune(i)
+	first := true
+	for i := 0; i <= 7; i++ {
+		for j := i + 1; j <= 8; j++ {
+			for k := j + 1; k <= 9; k++ {
+				if !first {
+					z01.PrintRune(',')
+					z01.PrintRune(' ')
 				}
+				first = false
+				z01.PrintRune(rune('0' + i))
+				z01.PrintRune(rune('0' + j))
+				z01.PrintRune(rune('0' + k))
 			}
 		}
 	}
