@@ -14,9 +14,9 @@ func PrintComb() {
 					z01.PrintRune(' ')
 				}
 				first = false
-				z01.PrintRune(rune('0' + i))
-				z01.PrintRune(rune('0' + j))
-				z01.PrintRune(rune('0' + k))
+				z01.PrintRune(rune(i))
+				z01.PrintRune(rune(j))
+				z01.PrintRune(rune(k))
 			}
 		}
 	}
