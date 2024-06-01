@@ -1,5 +1,7 @@
 package piscine
 
+import "strconv"
+
 func BasicAtoi(s string) int {
 	x, e := Atoi(s)
 	if e == nil {
