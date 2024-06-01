@@ -1,11 +1,13 @@
 package piscine
 
-import "strconv"
-
 func BasicAtoi(s string) int {
-	x, e := Atoi(s)
-	if e == nil {
-		return x
-	}
-	return 0
+    result := 0
+
+    for i := 0; i < len(s); i++ {
+        // Convert the character to its numeric value by subtracting '0'
+        digit := int(s[i] - '0')
+        result = result*10 + digit
+    }
+
+    return result
 }
