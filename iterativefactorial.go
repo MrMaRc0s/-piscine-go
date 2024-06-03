@@ -1,7 +1,8 @@
 package piscine
 
 func IterativeFactorial(nb int) int {
-	if nb < 0 {
+	NonPossibleValue := 20
+	if nb < 0 || nb > NonPossibleValue {
 		return 0
 	} else if nb == 0 {
 		return 1
