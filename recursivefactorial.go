@@ -8,5 +8,5 @@ func RecursiveFactorial(nb int) int {
 		return 1
 	}
 
-	return nb * (nb - 1)
+	return nb * RecursiveFactorial(nb-1)
 }
