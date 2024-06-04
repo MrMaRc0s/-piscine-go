@@ -1,7 +1,9 @@
 package piscine
 
 func FindNextPrime(nb int) int {
-	if nb < 2 {
+	if nb < 0 {
+		return 2
+	} else if nb < 2 {
 		return 0
 	}
 	var result int
