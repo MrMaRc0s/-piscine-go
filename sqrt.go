@@ -3,13 +3,14 @@ package piscine
 func Sqrt(nb int) int {
 	if nb < 0 {
 		return 0
-	} else if nb < 2 {
-		return nb
 	}
-	var x float32 = float32(nb)
-	var y float32 = (x + (float32(nb) / x)) / 2.0
-	if (y - 1.0*float32(int(y/1.0))) != 0 {
-		return 0
+
+	root := 0
+	for i := 1; i*i <= nb; i++ {
+		if i*i == nb {
+			root = i
+			break
+		}
 	}
-	return int(y)
+	return root
 }
