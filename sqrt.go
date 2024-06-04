@@ -12,7 +12,5 @@ func Sqrt(nb int) int {
 	if sqrt == float64(int(sqrt)) {
 		return int(sqrt)
 	}
-
 	return 0
-
 }
