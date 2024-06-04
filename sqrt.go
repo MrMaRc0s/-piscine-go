@@ -3,6 +3,8 @@ package piscine
 func Sqrt(nb int) int {
 	if nb < 2 {
 		return nb
+	} else if nb < 0 {
+		return 0
 	}
 	var x float32 = float32(nb)
 	var y float32 = (x + (float32(nb) / x)) / 2.0
