@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(piscine.Sqrt(278277))
-	fmt.Println(piscine.Sqrt(3))
+	fmt.Println(piscine.IsPrime(5))
+	fmt.Println(piscine.IsPrime(4))
 }
