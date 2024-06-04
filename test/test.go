@@ -1,11 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"github.com/01-edu/z01"
+
 	"piscine"
 )
 
 func main() {
-	fmt.Println(piscine.FindNextPrime(4))
-	fmt.Println(piscine.FindNextPrime(-617923))
+	z01.PrintRune(piscine.FirstRune("Hello!"))
+	z01.PrintRune(piscine.FirstRune("Salut!"))
+	z01.PrintRune(piscine.FirstRune("Ola!"))
+	z01.PrintRune('\n')
 }
