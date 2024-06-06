@@ -4,7 +4,7 @@ func Capitalize(s string) string {
 	var str string
 	first := true
 	for i := 0; i < len(s); i++ {
-		if IsAlpha(string(s[i])) {
+		if IsLower(string(s[i])) || IsUpper(string(s[i])) {
 			if first {
 				str += ToUpper(string(s[i]))
 				first = false
@@ -13,10 +13,7 @@ func Capitalize(s string) string {
 			}
 		} else {
 			str += string(s[i])
-			first = true
-			if IsNumeric(string(s[i])) {
-				first = false
-			}
+			first = !IsNumeric(string(s[i]))
 		}
 	}
 	return str
