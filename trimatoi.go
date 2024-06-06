@@ -1,26 +1,20 @@
 package piscine
 
-import (
-	"github.com/01-edu/z01"
-)
-
 func TrimAtoi(s string) int {
 	sign := 1
-	flag := 0
-	var result []int
-	for i := 0; i < len(s); i++ {
-		switch flag {
-		case 1:
-			if s[i] == '-' {
-				sign = -1
-			} else if s[i] >= 0 && s[i] <= 9 {
-			}
-		case 2:
-			if s[i] >= 0 && s[i] <= 9 {
-			}
+	result := 0
+	signFound := false
+	numberStarted := false
+
+	for _, char := range s {
+		if char == '-' && !numberStarted && !signFound {
+			sign = -1
+			signFound = true
+		} else if char >= '0' && char <= '9' {
+			result = result*10 + int(char-'0')
+			numberStarted = true
 		}
 	}
-	return result *= sign
 
-	z01.PrintRune('x')
+	return sign * result
 }
