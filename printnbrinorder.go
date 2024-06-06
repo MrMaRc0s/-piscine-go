@@ -18,7 +18,6 @@ func PrintNbrInOrder(n int) {
 	for digit, count := range digitCount {
 		for i := 0; i < count; i++ {
 			z01.PrintRune(rune(digit + '0'))
-			z01.PrintRune(' ')
 		}
 	}
 }
