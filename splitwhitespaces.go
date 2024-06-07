@@ -12,5 +12,6 @@ func SplitWhiteSpaces(s string) []string {
 			word = ""
 		}
 	}
+	result = append(result, word)
 	return result
 }
