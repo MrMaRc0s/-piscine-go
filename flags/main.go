@@ -16,15 +16,6 @@ func main() {
 		"	-o\n" +
 		"	        This flag will behave like a boolean, if it is called it will order the argument."
 
-	// Function to insert string into argument
-	insert := func(arg, insertStr string) string {
-		if insertStr == "" {
-			return arg
-		}
-		splitIndex := len(arg) / 2
-		return arg[:splitIndex] + insertStr + arg[splitIndex:]
-	}
-
 	// Function to order string argument
 	order := func(arg string) string {
 		runes := []rune(arg)
@@ -45,10 +36,9 @@ func main() {
 		case arg == "--help" || arg == "-h":
 			fmt.Println(help)
 			return
-		case arg == "--insert":
+		case arg == "--insert" || arg == "-i":
 			if i+1 < len(args) {
-				args[i] = ""
-				args[i+1] = insert(args[i+1], args[i+1])
+				args = append(args[:i], append([]string{args[i+1]}, args[i+2:]...)...)
 			}
 		case arg == "--order" || arg == "-o":
 			if len(args) > 1 {
@@ -58,10 +48,5 @@ func main() {
 	}
 
 	// Print the final argument
-	for _, arg := range args {
-		if arg != "" {
-			fmt.Print(arg + " ")
-		}
-	}
-	fmt.Println()
+	fmt.Println(args[0])
 }
