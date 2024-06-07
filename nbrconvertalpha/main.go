@@ -15,7 +15,7 @@ func main() {
 		args = args[1:]
 	}
 
-	for _, arg := range args {
+	for i, arg := range args {
 		num := 0
 		valid := true
 
@@ -36,6 +36,13 @@ func main() {
 				z01.PrintRune(rune('a' + num - 1))
 			}
 		}
+
+		if i < len(args)-1 {
+			z01.PrintRune(' ')
+		}
 	}
-	z01.PrintRune('\n')
+
+	if len(args) > 0 {
+		z01.PrintRune('\n')
+	}
 }
