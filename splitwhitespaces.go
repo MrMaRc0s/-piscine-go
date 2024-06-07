@@ -3,15 +3,16 @@ package piscine
 func SplitWhiteSpaces(s string) []string {
 	var word string
 	var result []string
-	runes := []rune(s)
-	for i := 0; i < len(runes); i++ {
-		if runes[i] != ' ' && runes[i] != '\t' && runes[i] != '\n' {
-			word += string(runes[i])
+	for i := 0; i < len(s); i++ {
+		if s[i] != ' ' && s[i] != '\t' && s[i] != '\n' {
+			word += string(s[i])
 		} else {
-			result = append(result, word)
+			if word != "" {
+				result = append(result, word)
+			}
 			word = ""
 		}
-		if i == len(runes)-1 && runes[i] != ' ' && runes[i] != '\t' && runes[i] != '\n' {
+		if i == len(s)-1 && s[i] != ' ' && s[i] != '\t' && s[i] != '\n' {
 			result = append(result, word)
 		}
 	}
