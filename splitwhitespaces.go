@@ -11,7 +11,9 @@ func SplitWhiteSpaces(s string) []string {
 			result = append(result, word)
 			word = ""
 		}
+		if i == len(runes)-1 && runes[i] != ' ' && runes[i] != '\t' && runes[i] != '\n' {
+			result = append(result, word)
+		}
 	}
-	result = append(result, word)
 	return result
 }
