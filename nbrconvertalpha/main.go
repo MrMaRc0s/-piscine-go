@@ -15,6 +15,10 @@ func main() {
 		args = args[1:]
 	}
 
+	if len(args) == 0 {
+		return // Do not print anything if there are no arguments
+	}
+
 	for _, arg := range args {
 		num := 0
 		valid := true
