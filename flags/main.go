@@ -49,9 +49,9 @@ func main() {
 				args = append(args[:i+1], args[i+2:]...)
 			}
 		case arg == "--order" || arg == "-o":
-			if len(args) > 1 {
-				args[0] = order(args[0])
-			}
+			args[0] = order(args[0]) // Order the argument
+			fmt.Println(args[0])     // Print and exit
+			return
 		}
 	}
 
