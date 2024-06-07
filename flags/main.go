@@ -6,55 +6,60 @@ import (
 )
 
 func main() {
-	args := os.Args[1:]
+	args := os.Args[1:] // Get command line arguments (excluding program name)
 
-	// Help message
-	help := "--insert\n" +
-		"	-i\n" +
-		"	        This flag inserts the string into the string passed as argument.\n" +
-		"--order\n" +
-		"	-o\n" +
-		"	        This flag will behave like a boolean, if it is called it will order the argument."
-
-	// Function to order string argument
-	order := func(arg string) string {
-		runes := []rune(arg)
-		for i := 0; i < len(runes); i++ {
-			for j := i + 1; j < len(runes); j++ {
-				if runes[i] > runes[j] {
-					runes[i], runes[j] = runes[j], runes[i]
-				}
-			}
-		}
-		return string(runes)
+	// If no arguments or help flag, print options
+	if len(args) == 0 || args[0] == "--help" {
+		fmt.Println(`--insert
+  -i
+         This flag inserts the string into the string passed as argument.
+--order
+  -o
+         This flag will behave like a boolean, if it is called it will order the argument.`)
+		return
 	}
 
-	// Check for flags and process accordingly
+	// Initialize variables
+	var insertStr, inputStr string
+	var orderFlag bool
+
+	// Process flags and arguments
 	for i := 0; i < len(args); i++ {
-		arg := args[i]
-		switch {
-		case arg == "--help" || arg == "-h":
-			fmt.Println(help)
-			return
-		case len(arg) > 9 && arg[:9] == "--insert=":
-			insertStr := arg[9:]
+		switch args[i] {
+		case "--insert", "-i":
 			if i+1 < len(args) {
-				args[i] = args[i+1] + insertStr
-				args = append(args[:i+1], args[i+2:]...)
+				insertStr = args[i+1]
+				i++ // Skip next argument
 			}
-		case len(arg) > 3 && arg[:3] == "-i=":
-			insertStr := arg[3:]
-			if i+1 < len(args) {
-				args[i] = args[i+1] + insertStr
-				args = append(args[:i+1], args[i+2:]...)
-			}
-		case arg == "--order" || arg == "-o":
-			args[0] = order(args[0]) // Order the argument
-			fmt.Println(args[0])     // Print the ordered string
-			return
+		case "--order", "-o":
+			orderFlag = true
+		default:
+			inputStr = args[i]
 		}
 	}
 
-	// Print the final argument
-	fmt.Println(args[0])
+	// Handle insertion
+	if insertStr != "" {
+		inputStr += insertStr
+	}
+
+	// Handle ordering
+	if orderFlag {
+		inputStr = sortString(inputStr)
+	}
+
+	fmt.Println(inputStr)
+}
+
+// Sort a string in ASCII order
+func sortString(s string) string {
+	runes := []rune(s)
+	for i := 0; i < len(runes); i++ {
+		for j := i + 1; j < len(runes); j++ {
+			if runes[i] > runes[j] {
+				runes[i], runes[j] = runes[j], runes[i]
+			}
+		}
+	}
+	return string(runes)
 }
