@@ -7,54 +7,16 @@ import (
 )
 
 func main() {
-	fullPath := os.Args[0]
+	// Get command-line arguments excluding the program name
+	args := os.Args[1:]
 
-	runes := []rune(fullPath)
-
-	var result []rune
-
-	for i := len(runes) - 1; i <= 0; i++ {
-		if runes[i] == '/' || runes[i] == '\\' {
-			break
-		} else if runes[i] == ' ' {
-			result = append(result, '\n')
-		} else {
-			result = append(result, runes[i])
+	// Loop through each argument
+	for _, arg := range args {
+		// Loop through each rune in the argument
+		for _, r := range arg {
+			z01.PrintRune(r)
 		}
-	}
-	name := string(runes)
-
-	if len(name) > 4 && name[len(name)-4:] == ".exe" {
-		name = name[:len(name)-4]
-	}
-	for _, r := range result {
-		z01.PrintRune(r)
+		// Print a newline after each argument
+		z01.PrintRune('\n')
 	}
 }
-
-/* 	lastSlashIndex := -1
-   	for i := len(runes) - 1; i >= 0; i-- {
-   		if runes[i] == '/' || runes[i] == '\\' {
-   			lastSlashIndex = i
-   			break
-   		}
-   	}
-
-   	executableName := runes
-   	if lastSlashIndex != -1 {
-   		executableName = runes[lastSlashIndex+1:]
-   	}
-
-   	name := string(executableName)
-
-   	if len(name) > 4 && name[len(name)-4:] == ".exe" {
-   		name = name[:len(name)-4]
-   	}
-
-   	for _, r := range name {
-   		if r == ' ' {
-   			z01.PrintRune('\n')
-   		} else {
-   			z01.PrintRune(r)
-   		}
-   	} */
