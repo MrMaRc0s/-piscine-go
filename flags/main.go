@@ -50,7 +50,7 @@ func main() {
 			}
 		case arg == "--order" || arg == "-o":
 			args[0] = order(args[0]) // Order the argument
-			fmt.Println(args[0])     // Print and exit
+			fmt.Println(args[0])     // Print the ordered string
 			return
 		}
 	}
