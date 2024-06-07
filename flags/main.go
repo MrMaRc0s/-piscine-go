@@ -36,9 +36,17 @@ func main() {
 		case arg == "--help" || arg == "-h":
 			fmt.Println(help)
 			return
-		case arg == "--insert" || arg == "-i":
+		case len(arg) > 9 && arg[:9] == "--insert=":
+			insertStr := arg[9:]
 			if i+1 < len(args) {
-				args = append(args[:i], append([]string{args[i+1]}, args[i+2:]...)...)
+				args[i] = args[i+1] + insertStr
+				args = append(args[:i+1], args[i+2:]...)
+			}
+		case len(arg) > 3 && arg[:3] == "-i=":
+			insertStr := arg[3:]
+			if i+1 < len(args) {
+				args[i] = args[i+1] + insertStr
+				args = append(args[:i+1], args[i+2:]...)
 			}
 		case arg == "--order" || arg == "-o":
 			if len(args) > 1 {
