@@ -54,6 +54,7 @@ func main() {
 		result = value1 / value2
 	case "%":
 		if value2 == 0 {
+			os.Stdout.WriteString("No modulo by 0\n")
 			return
 		}
 		result = value1 % value2
