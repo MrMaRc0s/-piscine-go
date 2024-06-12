@@ -49,8 +49,6 @@ func main() {
 		file, err := os.Open(filename)
 		if err != nil {
 			printString("ERROR: ")
-			printString(filename)
-			printString(": ")
 			printError(err.Error())
 			continue
 		}
