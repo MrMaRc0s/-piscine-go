@@ -1,8 +1,6 @@
 package main
 
-import (
-	"os"
-)
+import "os"
 
 func atoi(s string) int {
 	result := 0
@@ -56,13 +54,16 @@ func main() {
 	}
 
 	// Print the result
-	// Convert result to string and write it to standard output
 	var buffer [20]byte
 	idx := len(buffer)
 	negative := false
 	if result < 0 {
 		negative = true
 		result = -result
+	}
+	if result == 0 {
+		buffer[idx-1] = '0'
+		idx--
 	}
 	for result > 0 {
 		idx--
