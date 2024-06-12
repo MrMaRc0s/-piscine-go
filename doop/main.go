@@ -1,19 +1,25 @@
 package main
 
-import "os"
+import (
+	"os"
+)
 
-func atoi(s string) (int, bool) {
-	result := 0
-	sign := 1
+func atoi(s string) (int64, bool) {
+	result := int64(0)
+	sign := int64(1)
 	valid := true
 	for i := 0; i < len(s); i++ {
 		if s[i] == '-' && i == 0 {
 			sign = -1
 			continue
 		}
-		digit := int(s[i] - '0')
+		digit := int64(s[i] - '0')
 		if digit < 0 || digit > 9 {
 			valid = false
+			break
+		}
+		if result > (9223372036854775807-digit)/10 {
+			valid = false // overflow
 			break
 		}
 		result = result*10 + digit
@@ -22,29 +28,37 @@ func atoi(s string) (int, bool) {
 }
 
 func main() {
-	// Check if the number of arguments is correct
 	if len(os.Args) != 4 {
 		return
 	}
 
-	// Parse the first and third arguments as integers
 	value1, valid1 := atoi(os.Args[1])
 	value2, valid2 := atoi(os.Args[3])
 
-	// Check if both values are valid integers
 	if !valid1 || !valid2 {
 		return
 	}
 
-	// Perform the operation based on the operator
 	operator := os.Args[2]
-	var result int
+	var result int64
 	switch operator {
 	case "+":
+		if (value2 > 0 && value1 > (9223372036854775807-value2)) || (value2 < 0 && value1 < (-9223372036854775807+value2)) {
+			os.Stdout.WriteString("Overflow\n")
+			return
+		}
 		result = value1 + value2
 	case "-":
+		if (value2 > 0 && value1 < (-9223372036854775807+value2)) || (value2 < 0 && value1 > (9223372036854775807+value2)) {
+			os.Stdout.WriteString("Overflow\n")
+			return
+		}
 		result = value1 - value2
 	case "*":
+		if (value1 > 0 && (value2 > 0 && value2 > (9223372036854775807/value1))) || (value1 < 0 && (value2 > 0 && value2 < (-9223372036854775807/value1))) || (value1 < 0 && (value2 < 0 && value2 < (9223372036854775807/value1))) || (value1 > 0 && (value2 < 0 && value2 < (-9223372036854775807/value1))) {
+			os.Stdout.WriteString("Overflow\n")
+			return
+		}
 		result = value1 * value2
 	case "/":
 		if value2 == 0 {
@@ -59,10 +73,9 @@ func main() {
 		}
 		result = value1 % value2
 	default:
-		return // Invalid operator
+		return
 	}
 
-	// Print the result
 	var buffer [20]byte
 	idx := len(buffer)
 	negative := false
