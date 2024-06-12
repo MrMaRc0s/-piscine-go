@@ -53,7 +53,7 @@ func main() {
 		}
 		result = value1 - value2
 	case "*":
-		if (value1 > 0 && (value2 > 0 && value2 > (9223372036854775807/value1))) || (value1 < 0 && (value2 > 0 && value2 < (-9223372036854775807/value1))) || (value1 < 0 && (value2 < 0 && value2 < (9223372036854775807/value1))) || (value1 > 0 && (value2 < 0 && value2 < (-9223372036854775807/value1))) {
+		if value1 != 0 && ((value1 > 0 && value2 > (9223372036854775807/value1)) || (value1 < 0 && value2 < (-9223372036854775807/value1))) {
 			return
 		}
 		result = value1 * value2
