@@ -2,9 +2,10 @@ package main
 
 import "os"
 
-func atoi(s string) int {
+func atoi(s string) (int, bool) {
 	result := 0
 	sign := 1
+	valid := true
 	for i := 0; i < len(s); i++ {
 		if s[i] == '-' && i == 0 {
 			sign = -1
@@ -12,11 +13,12 @@ func atoi(s string) int {
 		}
 		digit := int(s[i] - '0')
 		if digit < 0 || digit > 9 {
-			return 0
+			valid = false
+			break
 		}
 		result = result*10 + digit
 	}
-	return result * sign
+	return result * sign, valid
 }
 
 func main() {
@@ -26,8 +28,13 @@ func main() {
 	}
 
 	// Parse the first and third arguments as integers
-	value1 := atoi(os.Args[1])
-	value2 := atoi(os.Args[3])
+	value1, valid1 := atoi(os.Args[1])
+	value2, valid2 := atoi(os.Args[3])
+
+	// Check if both values are valid integers
+	if !valid1 || !valid2 {
+		return
+	}
 
 	// Perform the operation based on the operator
 	operator := os.Args[2]
