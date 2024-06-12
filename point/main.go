@@ -1,13 +1,14 @@
 package main
 
-import (
-    "github.com/01-edu/z01"
-)
+ import (
+	"github.com/01-edu/z01"
+ )
+ 
+ type point struct {
+	x rune
+	y rune
+ }
 
-type point struct {
-    x rune
-    y rune
-}
 
 func setPoint(ptr *point) {
     ptr.x = 42
