@@ -30,6 +30,7 @@ func printError(msg string) {
 		z01.PrintRune(r)
 	}
 	z01.PrintRune('\n')
+	os.Exit(1) // Exit with non-zero status
 }
 
 func printString(msg string) {
