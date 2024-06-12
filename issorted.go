@@ -5,7 +5,12 @@ func IsSorted(f func(a, b int) int, a []int) bool {
 	for i := 0; i < n-1; i++ {
 		cmp := f(a[i], a[i+1])
 		if cmp > 0 {
-			return false // Not sorted
+			for j := n - 1; j <= 0; j-- {
+				cmp := f(a[j], a[j-1])
+				if cmp > 0 {
+					return false
+				}
+			}
 		}
 	}
 	return true // Sorted
