@@ -43,17 +43,17 @@ func main() {
 	var result int64
 	switch operator {
 	case "+":
-		if (value2 > 0 && value1 > (9223372036854775807-value2)) || (value2 < 0 && value1 < (-9223372036854775807+value2)) {
+		if (value1 > (9223372036854775807 - value2)) || (value1 < (-9223372036854775807 + value2)) {
 			return
 		}
 		result = value1 + value2
 	case "-":
-		if (value2 > 0 && value1 < (-9223372036854775807+value2)) || (value2 < 0 && value1 > (9223372036854775807+value2)) {
+		if (value1 < (-9223372036854775807 + value2)) || (value1 > (9223372036854775807 + value2)) {
 			return
 		}
 		result = value1 - value2
 	case "*":
-		if value1 != 0 && ((value1 > 0 && value2 > (9223372036854775807/value1)) || (value1 < 0 && value2 < (-9223372036854775807/value1))) {
+		if value1 != 0 && ((value2 > (9223372036854775807 / value1)) || (value2 < (-9223372036854775807 / value1))) {
 			return
 		}
 		result = value1 * value2
