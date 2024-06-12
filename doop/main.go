@@ -44,7 +44,6 @@ func main() {
 	switch operator {
 	case "+":
 		if (value2 > 0 && value1 > (9223372036854775807-value2)) || (value2 < 0 && value1 < (-9223372036854775807+value2)) {
-			os.Stdout.WriteString("Overflow\n")
 			return
 		}
 		result = value1 + value2
