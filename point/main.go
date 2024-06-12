@@ -1,31 +1,25 @@
 package main
 
-import "unicode/utf8"
+import "github.com/01-edu/z01"
 
- type point struct {
+type point struct {
 	x rune
 	y rune
- }
- 
- func setPoint(ptr *point) {
+}
+
+func setPoint(ptr *point) {
 	ptr.x = 42
 	ptr.y = 21
- }
+}
 
 func main() {
-    points := &point{}
+	points := &point{}
 
-    setPoint(points)
+	setPoint(points)
 
-    // Convert runes to their string representations for printing
-    xStr := string(points.x)
-    yStr := string(points.y)
-
-    // Calculate the width of the runes in bytes for demonstration
-    xWidth := utf8.RuneLen(points.x)
-    yWidth := utf8.RuneLen(points.y)
-
-    // Print the results
-    println("x =", xStr, "width in bytes:", xWidth)
-    println("y =", yStr, "width in bytes:", yWidth)
+	// Print the results using z01
+	z01.PrintRune(points.x)
+	z01.PrintRune(' ')
+	z01.PrintRune(points.y)
+	z01.PrintRune('\n')
 }
