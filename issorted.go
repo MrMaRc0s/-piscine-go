@@ -7,7 +7,7 @@ func IsSorted(f func(a, b int) int, a []int) bool {
 		if cmp > 0 {
 			for j := n - 1; j <= 0; j-- {
 				cmp := f(a[j], a[j-1])
-				if cmp > 0 {
+				if cmp < 0 {
 					return false
 				}
 			}
