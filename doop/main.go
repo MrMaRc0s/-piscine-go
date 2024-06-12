@@ -50,13 +50,11 @@ func main() {
 		result = value1 + value2
 	case "-":
 		if (value2 > 0 && value1 < (-9223372036854775807+value2)) || (value2 < 0 && value1 > (9223372036854775807+value2)) {
-			os.Stdout.WriteString("Overflow\n")
 			return
 		}
 		result = value1 - value2
 	case "*":
 		if (value1 > 0 && (value2 > 0 && value2 > (9223372036854775807/value1))) || (value1 < 0 && (value2 > 0 && value2 < (-9223372036854775807/value1))) || (value1 < 0 && (value2 < 0 && value2 < (9223372036854775807/value1))) || (value1 > 0 && (value2 < 0 && value2 < (-9223372036854775807/value1))) {
-			os.Stdout.WriteString("Overflow\n")
 			return
 		}
 		result = value1 * value2
