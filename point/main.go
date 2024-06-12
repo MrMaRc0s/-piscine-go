@@ -2,15 +2,15 @@ package main
 
 import "unicode/utf8"
 
-type point struct {
-    x rune
-    y rune
-}
-
-func setPoint(ptr *point) {
-    ptr.x = 42
-    ptr.y = 21
-}
+ type point struct {
+	x rune
+	y rune
+ }
+ 
+ func setPoint(ptr *point) {
+	ptr.x = 42
+	ptr.y = 21
+ }
 
 func main() {
     points := &point{}
