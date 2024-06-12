@@ -48,6 +48,7 @@ func main() {
 	for _, filename := range os.Args[1:] {
 		file, err := os.Open(filename)
 		if err != nil {
+			printString("ERROR: ")
 			printString(filename)
 			printString(": ")
 			printError(err.Error())
