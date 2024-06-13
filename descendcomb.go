@@ -22,8 +22,8 @@ func DescendComb() {
 			z01.PrintRune(' ')
 			printTwoDigit(j)
 		}
-		z01.PrintRune('\n')
 	}
+	z01.PrintRune('\n')
 }
 
 func printTwoDigit(n int) {
