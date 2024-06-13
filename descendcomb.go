@@ -15,7 +15,6 @@ func DescendComb() {
 			if i == 1 && j == 0 {
 				printTwoDigit(i)
 				z01.PrintRune(' ')
-				printTwoDigit(j)
 				continue
 			}
 			first = false
