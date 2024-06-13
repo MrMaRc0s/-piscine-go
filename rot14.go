@@ -7,13 +7,14 @@ func Rot14(s string) string {
 	for j := 0; j < len(runes); j++ {
 		temp = runes[j]
 		if temp > 'z' || temp < 'A' {
+			result = append(result, temp)
 			continue
 		}
 		for i := 1; i <= 14; i++ {
 			temp++
-			if temp > 'Z' {
+			if temp > 'Z' && runes[j] <= 'Z' {
 				temp = 'A'
-			} else if temp > 'z' {
+			} else if temp > 'z' && runes[j] > 'Z' {
 				temp = 'a'
 			}
 		}
