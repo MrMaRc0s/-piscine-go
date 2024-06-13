@@ -12,13 +12,18 @@ func DescendComb() {
 				z01.PrintRune(',')
 				z01.PrintRune(' ')
 			}
+			if i == 1 && j == 0 {
+				printTwoDigit(i)
+				z01.PrintRune(' ')
+				printTwoDigit(j)
+				continue
+			}
 			first = false
 			printTwoDigit(i)
 			z01.PrintRune(' ')
 			printTwoDigit(j)
 		}
 	}
-	z01.PrintRune('\n')
 }
 
 func printTwoDigit(n int) {
