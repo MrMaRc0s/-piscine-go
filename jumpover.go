@@ -1,14 +1,14 @@
 package piscine
 
 func JumpOver(str string) string {
-	if len(str) < 3 {
+	res := ""
+	if str == "" {
 		return "\n"
 	}
-	var temp string
-	for i := 0; i <= len(str); i++ {
-		if i%3 == 0 {
-			temp += string(str[i])
+	if len(str) > 3 {
+		for i := 2; i < len(str); i += 3 {
+			res += string(str[i])
 		}
 	}
-	return temp + "\n"
+	return res + "\n"
 }
