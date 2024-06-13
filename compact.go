@@ -1,15 +1,13 @@
 package piscine
 
 func Compact(ptr *[]string) int {
-	var count int
-	var temp []string
-	for _, item := range *ptr {
-		if item != "" {
-			temp = append(temp, item)
-		} else {
-			count++
+	writeIdx := 0
+	for readIdx := range *ptr {
+		if (*ptr)[readIdx] != "" {
+			(*ptr)[writeIdx] = (*ptr)[readIdx]
+			writeIdx++
 		}
 	}
-	*ptr = temp
-	return count
+	*ptr = (*ptr)[:writeIdx]
+	return writeIdx
 }
