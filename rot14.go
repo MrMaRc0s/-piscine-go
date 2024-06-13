@@ -6,10 +6,15 @@ func Rot14(s string) string {
 	var temp rune
 	for j := 0; j < len(runes); j++ {
 		temp = runes[j]
+		if temp > 'z' || temp < 'A' {
+			continue
+		}
 		for i := 1; i <= 14; i++ {
 			temp++
-			if temp > 'z' {
+			if temp > 'Z' {
 				temp = 'A'
+			} else if temp > 'z' {
+				temp = 'a'
 			}
 		}
 		result = append(result, temp)
