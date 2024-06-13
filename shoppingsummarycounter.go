@@ -1,16 +1,19 @@
 package piscine
 
 func ShoppingSummaryCounter(str string) map[string]int {
-	if str == "Burger Burger Water Coffe    e Water Chips Carrot" {
-		return map[string]int{"": 3, "Burger": 2, "Carrot": 1, "Chips": 1, "Coffe": 1, "Water": 2, "e": 1}
+	summary := make(map[string]int)
+	word := ""
+
+	for i := 0; i < len(str); i++ {
+		if str[i] != ' ' {
+			word += string(str[i])
+		} else {
+			summary[word]++
+			word = ""
+		}
 	}
-	counts := make(map[string]int)
+	// Add the last word if there is one
+	summary[word]++
 
-	items := SplitWhiteSpaces(str)
-
-	for _, item := range items {
-		counts[item]++
-	}
-
-	return counts
+	return summary
 }
