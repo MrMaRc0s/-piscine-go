@@ -11,7 +11,7 @@ func LoafOfBread(str string) string {
 	var result string
 	var end bool
 	for i := 0; i < len(str); i++ {
-		if i >= len(str)-1 {
+		if i > len(str)-2 {
 			end = true
 		}
 		if count >= 5 && str[i] == ' ' {
