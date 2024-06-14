@@ -19,40 +19,20 @@ func PrintStr(s string) {
 }
 
 func OpenDoor(ptrDoor *Door) bool {
-	var ptr []rune = []rune("Door Opening...")
-	for i := 0; i < len(ptr); i++ {
-		z01.PrintRune(ptr[i])
-	}
-	z01.PrintRune('\n')
 	ptrDoor.state = OPEN
 	return true
 }
 
 func CloseDoor(ptrDoor *Door) bool {
-	var ptr []rune = []rune("Door Closing...")
-	for i := 0; i < len(ptr); i++ {
-		z01.PrintRune(ptr[i])
-	}
-	z01.PrintRune('\n')
 	ptrDoor.state = CLOSE
 	return true
 }
 
 func IsDoorOpen(door *Door) bool {
-	var ptr []rune = []rune("Is the Door opened?")
-	for i := 0; i < len(ptr); i++ {
-		z01.PrintRune(ptr[i])
-	}
-	z01.PrintRune('\n')
 	return door.state == OPEN
 }
 
 func IsDoorClose(ptrDoor *Door) bool {
-	var ptr []rune = []rune("Is the Door closed?")
-	for i := 0; i < len(ptr); i++ {
-		z01.PrintRune(ptr[i])
-	}
-	z01.PrintRune('\n')
 	return ptrDoor.state == CLOSE
 }
 
