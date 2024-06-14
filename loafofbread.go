@@ -2,7 +2,7 @@ package piscine
 
 func LoafOfBread(str string) string {
 	if len(str) < 5 {
-		return "Invalid Output"
+		return "Invalid Output\n"
 	}
 	var count int = 0
 	var result string
