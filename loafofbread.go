@@ -1,6 +1,9 @@
 package piscine
 
 func LoafOfBread(str string) string {
+	if len(str) == 0 {
+		return "\n"
+	}
 	if len(str) < 5 {
 		return "Invalid Output\n"
 	}
@@ -13,7 +16,6 @@ func LoafOfBread(str string) string {
 			result += string(str[i])
 			count++
 			if count == 5 {
-				// Skip the next character
 				i++
 				count = 0
 				if i < len(str) {
@@ -23,7 +25,6 @@ func LoafOfBread(str string) string {
 		}
 	}
 
-	// Remove the trailing space if it exists
 	if len(result) > 0 && result[len(result)-1] == ' ' {
 		result = result[:len(result)-1]
 	}
