@@ -1,8 +1,6 @@
 package piscine
 
-import (
-	"fmt"
-)
+import "github.com/01-edu/z01"
 
 // Define constants for door states
 const (
@@ -16,30 +14,45 @@ type Door struct {
 
 func PrintStr(s string) {
 	for _, r := range s {
-		fmt.Printf("%c", r)
+		z01.PrintRune(r)
 	}
-	fmt.Println()
 }
 
 func OpenDoor(ptrDoor *Door) bool {
-	PrintStr("Door Opening...")
+	var ptr []rune = []rune("Door Opening...")
+	for i := 0; i < len(ptr); i++ {
+		z01.PrintRune(ptr[i])
+	}
+	z01.PrintRune('\n')
 	ptrDoor.state = OPEN
 	return true
 }
 
 func CloseDoor(ptrDoor *Door) bool {
-	PrintStr("Door Closing...")
+	var ptr []rune = []rune("Door Closing...")
+	for i := 0; i < len(ptr); i++ {
+		z01.PrintRune(ptr[i])
+	}
+	z01.PrintRune('\n')
 	ptrDoor.state = CLOSE
 	return true
 }
 
 func IsDoorOpen(door *Door) bool {
-	PrintStr("Is the Door opened?")
+	var ptr []rune = []rune("Is the Door opened?")
+	for i := 0; i < len(ptr); i++ {
+		z01.PrintRune(ptr[i])
+	}
+	z01.PrintRune('\n')
 	return door.state == OPEN
 }
 
 func IsDoorClose(ptrDoor *Door) bool {
-	PrintStr("Is the Door closed?")
+	var ptr []rune = []rune("Is the Door closed?")
+	for i := 0; i < len(ptr); i++ {
+		z01.PrintRune(ptr[i])
+	}
+	z01.PrintRune('\n')
 	return ptrDoor.state == CLOSE
 }
 
