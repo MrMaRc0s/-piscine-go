@@ -5,28 +5,24 @@ import (
 )
 
 func DescendComb() {
-	first := true
-	for i := 99; i >= 0; i-- {
-		for j := i - 1; j >= 0; j-- {
-			if !first {
-				z01.PrintRune(',')
-				z01.PrintRune(' ')
+	for a := '9'; a >= '0'; a-- {
+		for b := '9'; b >= '0'; b-- {
+			d := b - 1
+			for c := a; c >= '0'; c-- {
+				for d >= '0' {
+					z01.PrintRune(a)
+					z01.PrintRune(b)
+					z01.PrintRune(' ')
+					z01.PrintRune(c)
+					z01.PrintRune(d)
+					if !(a == '0' && b == '1' && c == '0' && d == '0') {
+						z01.PrintRune(',')
+						z01.PrintRune(' ')
+					}
+					d--
+				}
+				d = '9'
 			}
-			if i == 1 && j == 0 {
-				printTwoDigit(i)
-				z01.PrintRune(' ')
-				continue
-			}
-			first = false
-			printTwoDigit(i)
-			z01.PrintRune(' ')
-			printTwoDigit(j)
 		}
 	}
-	z01.PrintRune('\n')
-}
-
-func printTwoDigit(n int) {
-	z01.PrintRune(rune('0' + n/10))
-	z01.PrintRune(rune('0' + n%10))
 }
