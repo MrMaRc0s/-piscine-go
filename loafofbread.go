@@ -35,5 +35,3 @@ func LoafOfBread(str string) string {
 	}
 	return result + "\n"
 }
-
-// fmt.Print(piscine.LoafOfBread("This is a loaf of bread"))
