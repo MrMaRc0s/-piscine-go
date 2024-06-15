@@ -1,6 +1,6 @@
 package piscine
 
-+func SortWordArr(a []string) { // k
+func SortWordArr(a []string) { // k
  	for i := 0; i < len(a)-1; i++ {
  		for j := 0; j < len(a)-i-1; j++ {
  			if a[j] > a[j+1] {
