@@ -1,11 +1,8 @@
 package piscine
 
-func ListSize(l *List) int {
-	var counter int
-	corrent := l.Head
-	for corrent != nil {
-		counter++
-		corrent = corrent.Next
+func ListLast(l *List) interface{} {
+	if l.Head != nil {
+		return l.Tail.Data
 	}
-	return counter
+	return nil
 }
