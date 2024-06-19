@@ -1,3 +1,4 @@
+// Quest11
 package piscine
 
 func CompStr(a, b interface{}) bool {
