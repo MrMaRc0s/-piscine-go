@@ -1,3 +1,4 @@
+// Quest5
 package piscine
 
 func Capitalize(s string) string {

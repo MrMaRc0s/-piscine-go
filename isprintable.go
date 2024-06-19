@@ -1,3 +1,4 @@
+// Quest5
 package piscine
 
 func IsPrintable(s string) bool {
