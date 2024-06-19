@@ -1,3 +1,4 @@
+// Quest7
 package piscine
 
 func SplitWhiteSpaces(s string) []string {
