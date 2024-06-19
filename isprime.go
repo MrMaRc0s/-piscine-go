@@ -1,3 +1,4 @@
+// Quest4
 package piscine
 
 func IsPrime(nb int) bool {
