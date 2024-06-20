@@ -1,4 +1,5 @@
 // Quest6
+
 package main
 
 import (
@@ -8,7 +9,7 @@ import (
 
 // Function to check if a string is a flag of the form -x or --xxx
 func isFlag(s string) bool {
-	return len(s) >= 2 && s[0] == '-' && (s[1] == 'i' || s[1] == 'o')
+	return len(s) >= 2 && (s[0] == '-' || s[0] == '-') && (s[1] == 'i' || s[1] == 'o')
 }
 
 // Function to print help information
