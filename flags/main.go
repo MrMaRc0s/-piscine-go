@@ -6,9 +6,9 @@ import (
 	"os"
 )
 
-// Helper function to check if a character is a valid flag
-func isFlag(char string) bool {
-	return len(char) >= 2 && (char[0] == '-' || char[0] == '-') && (char[1] == '-' || char[1] == 'i' || char[1] == 'o')
+// Function to check if a string is a flag of the form -x or --xxx
+func isFlag(s string) bool {
+	return len(s) >= 1 && s[0] == '-'
 }
 
 // Function to print help information
@@ -28,8 +28,11 @@ func insertString(base, toInsert string) string {
 
 // Function to order a string in ASCII order
 func orderString(input string) string {
-	// Convert string to slice of runes
-	runes := []rune(input)
+	// Convert string to slice of runes manually
+	runes := make([]rune, len(input))
+	for i, r := range input {
+		runes[i] = r
+	}
 	n := len(runes)
 
 	// Simple sorting using bubble sort
@@ -42,7 +45,12 @@ func orderString(input string) string {
 		}
 	}
 
-	return string(runes)
+	// Convert back to string manually
+	result := make([]byte, len(runes))
+	for i, r := range runes {
+		result[i] = byte(r)
+	}
+	return string(result)
 }
 
 func main() {
