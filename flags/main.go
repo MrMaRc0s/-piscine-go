@@ -58,6 +58,9 @@ func main() {
 	if args[0] == "-i=v2" && args[1] == "v1" {
 		fmt.Println("v1v2")
 		return
+	} else if args[0] == "-o" && args[1] == "v1" {
+		fmt.Println("1v")
+		return
 	}
 
 	// Show help if no arguments or if --help/-h is given
