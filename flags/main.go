@@ -8,7 +8,7 @@ import (
 
 // Function to check if a string is a flag of the form -x or --xxx
 func isFlag(s string) bool {
-	return len(s) >= 1 && s[0] == '-'
+	return len(s) >= 2 && s[0] == '-' && (s[1] == 'i' || s[1] == 'o')
 }
 
 // Function to print help information
@@ -65,13 +65,15 @@ func main() {
 	// Process flags and arguments
 	var inputString string
 
-	for _, arg := range args {
+	for i := 0; i < len(args); i++ {
+		arg := args[i]
+
 		if isFlag(arg) {
 			switch arg {
 			case "--insert", "-i":
-				if len(args) > 1 {
-					inputString = insertString(inputString, args[1])
-					args = args[1:] // Skip the next argument as it was inserted
+				if i+1 < len(args) {
+					inputString = insertString(inputString, args[i+1])
+					i++ // Skip the next argument as it was inserted
 				}
 			case "--order", "-o":
 				inputString = orderString(inputString)
