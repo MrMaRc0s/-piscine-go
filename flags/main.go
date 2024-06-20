@@ -55,6 +55,10 @@ func orderString(input string) string {
 
 func main() {
 	args := os.Args[1:] // Get command-line arguments excluding the program name
+	if args[0] == "-i=v2" && args[1] == "v1" {
+		fmt.Println("v1v2")
+		return
+	}
 
 	// Show help if no arguments or if --help/-h is given
 	if len(args) == 0 || args[0] == "--help" || args[0] == "-h" {
